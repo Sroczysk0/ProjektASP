@@ -1,0 +1,30 @@
+﻿@model Projekt01.Models.GameDetailsViewModel
+
+<h1>Szczegóły gry: @Model.GameName</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Platforma</th>
+        <th>Rok wydania</th>
+        <th>Regiony sprzedaży</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var platform in Model.PlatformDetails)
+    {
+        <tr>
+            <td>@platform.PlatformName</td>
+            <td>@platform.ReleaseYear</td>
+            <td>
+                <ul>
+                    @foreach (var region in platform.Regions)
+                    {
+                        <li>@region.RegionName: @region.NumSales mln sprzedanych egzemplarzy</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

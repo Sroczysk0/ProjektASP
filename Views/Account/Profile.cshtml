@@ -1,0 +1,26 @@
+﻿@model Projekt01.Models.AppUser
+
+@{
+    ViewData["Title"] = "Moje konto";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <section>
+            <h2 class="mb-3">Szczegóły konta</h2>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" value="@Model.Email" readonly />
+                <label for="email">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" value="@Model.Role" readonly />
+                <label for="role">Rola</label>
+            </div>
+            <div>
+                <a class="w-100 btn btn-lg btn-danger" asp-action="Logout">Wyloguj się</a>
+            </div>
+        </section>
+    </div>
+</div>

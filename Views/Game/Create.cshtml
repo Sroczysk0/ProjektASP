@@ -1,0 +1,23 @@
+﻿@model Projekt01.Models.CreateGameViewModel
+
+<h1>Dodaj Grę</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="GameName">Nazwa Gry</label>
+        <input type="text" class="form-control" id="GameName" name="GameName" required />
+    </div>
+
+    <div class="form-group">
+        <label for="SelectedGenreId">Gatunek</label>
+        <select class="form-control" id="SelectedGenreId" name="SelectedGenreId" required>
+            <option value="">Wybierz Gatunek</option>
+            @foreach (var genre in Model.Genres)
+            {
+                <option value="@genre.Value">@genre.Text</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Dodaj Grę</button>
+</form>
